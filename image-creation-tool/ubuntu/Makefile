@@ -14,6 +14,8 @@ iso:
 	sudo mount -o loop,offset=269484032 $(ISO) /tmp/ubuntu_iso
 	sudo cp -a sources/* /tmp/ubuntu_iso
 	sudo sed -i 's/1/0/' /tmp/ubuntu_iso/etc/apt/apt.conf.d/20auto-upgrades
+	sudo mkdir /tmp/ubuntu_iso/opt/ethereumonarm
+	sudo cp -R ../../fpm-package-builder/packages/*.deb /tmp/ubuntu_iso/opt/ethereumonarm
 	sudo umount /tmp/ubuntu_iso
 	mv $(ISO) ethonarm_$(DATE).$(RELEASE).img
 	rmdir /tmp/ubuntu_iso
