@@ -14,7 +14,6 @@ Vagrant.configure("2") do |config|
     gem install --no-document fpm
     add-apt-repository ppa:longsleep/golang-backports
     apt-get update
-    apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F6BC817356A3D45E
     apt-get -y install golang-go
     sed -i '22a \t: # Ensure this if-clause is not empty. If it were empty, and we had an 'else', then it is an error in shell syntax' /var/lib/gems/2.7.0/gems/fpm-1.12.0/templates/deb/postinst_upgrade.sh.erb
     su - vagrant -c "curl https://sh.rustup.rs -sSf | sh -s -- -y"
