@@ -83,14 +83,12 @@ if [ ! -f $FLAG ]; then
   # Ethereum software installation
   # Add APT EthRaspbian repository
   sleep 25
-  echo "Adding Ethereum repositories"
-  apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 8A584409D327B0A5
-  add-apt-repository -n "deb http://apt.ethraspbian.com focal main"
 
   # Install Ethereum packages
   echo Installing Ethereum packages
   apt-get update
-  apt-get -y install ethereumonarm-armbian-extras geth openethereum nethermind besu prysm lighthouse nimbus teku eth2.0-deposit-cli
+  # apt-get -y install ethereumonarm-armbian-extras geth openethereum nethermind besu prysm lighthouse nimbus teku eth2.0-deposit-cli
+  sudo dpkg --install --recursive /opt/ethereumonarm/
   systemctl enable geth
 
   # Create an alias for package updates
