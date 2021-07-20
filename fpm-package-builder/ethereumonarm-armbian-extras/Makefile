@@ -24,8 +24,7 @@ FPM_OPTS := -s dir -n $(PKG_NAME) -v $(PKG_VERSION) --iteration $(PKG_RELEASE)\
 	-C $(SOURCESDIR) --maintainer $(PKG_MAINTAINER) --description $(PKG_DESCRIPTION)\
 	--after-install $(PKG_AFTER_INSTALL) --before-remove $(PKG_BEFPRE_REMOVE)\
 	--after-remove $(PKG_AFTER_REMOVE) -a $(PKG_ARCH) -p $(OUTPUTDIR) -x */.gitkeep\
-	--depends	dphys-swapfile\
-	--depends dc
+	--depends	dphys-swapfile
 
 deb: ## Create deb package
 	chmod 644 $(SOURCESDIR)etc/cron.d/armbian-truncate-logs
